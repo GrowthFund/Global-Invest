@@ -1,552 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global Invest Ltd</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0d1117;
-      color: #e6edf3;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: #ffffff;
+      line-height: 1.6;
     }
 
     header {
-      padding: 20px 40px;
-      background-color: #161b22;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #30363d;
+      background: #161b22;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
-      font-size: 24px;
-      color: #58a6ff;
+      font-size: 1.8rem;
+      color: #00ffae;
+    }
+
+    nav {
+      background: #0c0f13;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1rem;
     }
 
     nav a {
-      color: #c9d1d9;
+      color: #ffffff;
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: 600;
+      margin: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 1px solid transparent;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #00ffae;
+      color: #000;
+      border-color: #00ffae;
     }
 
     .hero {
-      padding: 80px 40px;
       text-align: center;
-      background: linear-gradient(145deg, #161b22, #0d1117);
+      padding: 3rem 1rem;
+      background: linear-gradient(to right, #0c0f13, #121212);
     }
 
     .hero h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
     .hero p {
-      font-size: 18px;
-      color: #8b949e;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .counter {
-      font-size: 32px;
-      color: #3fb950;
-      margin-top: 30px;
-    }
-
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      padding: 60px 40px;
-    }
-
-    .plan {
-      background: #21262d;
-      border: 1px solid #30363d;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
-
-    .plan h3 {
-      font-size: 20px;
-      margin-bottom: 15px;
-      color: #58a6ff;
-    }
-
-    .plan p {
-      font-size: 14px;
-      color: #adbac7;
-    }
-
-    .invest-btn {
-      margin-top: 20px;
-      background-color: #3fb950;
-      color: #fff;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-
-    .invest-btn:hover {
-      background-color: #2ea043;
-    }
-
-    .why-section {
-      padding: 60px 40px;
-      background-color: #0d1117;
+    .section {
+      padding: 2rem 1rem;
       text-align: center;
     }
 
-    .why-section h2 {
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .why-box {
-      background: #161b22;
-      border: 1px solid #30363d;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .slideshow-container {
-      width: 100%;
-      max-width: 500px;
-      margin: 40px auto;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .slideshow-container img {
-      width: 100%;
-      display: none;
-      border-radius: 10px;
-    }
-
-    .active-slide {
-      display: block !important;
-    }
-
-    .investors-section {
-      padding: 60px 40px;
-      background: #161b22;
-      border-top: 1px solid #30363d;
-    }
-
-    .investors-section h2 {
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-
-    .investor-list {
+    .plans, .steps, .reasons, .investors, .slideshow {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
 
-    .investor-card {
-      background-color: #21262d;
-      padding: 15px 20px;
+    .plan, .step, .reason, .investor-card, .slide {
+      background: #161b22;
+      padding: 1rem;
       border-radius: 10px;
-      border: 1px solid #30363d;
-      display: flex;
-      justify-content: space-between;
-      font-size: 15px;
+      width: 280px;
+      max-width: 90%;
+      box-shadow: 0 0 10px rgba(0, 255, 174, 0.1);
     }
 
-    .cta-buttons {
+    .ticker {
+      margin: 2rem auto;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ffae;
       text-align: center;
-      margin-top: 40px;
+      animation: tickerMove 5s linear infinite;
     }
 
-    .cta-buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 22px;
-      background-color: #238636;
-      color: #fff;
+    @keyframes tickerMove {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .buttons {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .buttons a {
+      background: #00ffae;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
+      font-weight: bold;
+      font-size: 1rem;
     }
 
     footer {
+      background: #0c0f13;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-      background-color: #161b22;
-      color: #768390;
-      border-top: 1px solid #30363d;
+      color: #888;
     }
 
-    footer p {
-      margin: 5px 0;
+    img.investor-img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .ticker {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Global Invest Ltd</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#plans">Plans</a>
-      <a href="#why">Why Us</a>
-      <a href="register.html">Register</a>
-      <a href="#contact">Contact</a>
-      <a href="login.html">Log In</a>
-    </nav>
   </header>
 
+  <nav>
+    <a href="#plans">Plans</a>
+    <a href="#how">How It Works</a>
+    <a href="#why">Why Choose Us</a>
+    <a href="#investors">Live Investors</a>
+  </nav>
+
   <section class="hero">
-    <h2>Grow Your Wealth with Confidence</h2>
-    <p>Choose from powerful investment plans and watch your money multiply with minimal risk.</p>
-    <div class="counter" id="totalInvested">$0</div>
+    <h2>Invest Smartly with Global Invest Ltd</h2>
+    <p>Choose from multiple plans, watch your profits grow daily, and join a thriving community of investors worldwide.</p>
+    <div class="buttons">
+      <a href="#">Register Now</a>
+      <a href="#">Contact Us</a>
+    </div>
   </section>
 
-  <section class="plans" id="plans">
-    <!-- [Your existing plans remain unchanged] -->
-    <section class="plans">
-        <div class="plan">
-          <h3>Starter Plan - $100</h3>
-          <p>Perfect for new investors. Earn steady returns daily. Minimum risk. No lock-up period.</p>
-          <button class="invest-btn" onclick="handleInvest('Starter Plan - $100')">Invest Now</button>
-        </div>
-        <div class="plan">
-          <h3>Silver Plan - $500</h3>
-          <p>Boost your profits with increased interest rate and monthly compounding returns.</p>
-          <button class="invest-btn" onclick="handleInvest('Starter Plan - $500')">Invest Now</button>
-        </div>
-        <div class="plan">
-          <h3>Gold Plan - $1,000</h3>
-          <p>Enjoy premium returns, personal advisor, and weekly bonuses. High-growth potential.</p>
-          <button class="invest-btn" onclick="handleInvest('Starter Plan - $1,000')">Invest Now</button>
-        </div>
-        <div class="plan">
-          <h3>Pro Plan - $2,500</h3>
-          <p>Advanced plan for serious investors. Maximize ROI with smart reinvestment strategies.</p>
-          <button class="invest-btn" onclick="handleInvest('Starter Plan - $2,500')">Invest Now</button>
-        </div>
-        <div class="plan">
-          <h3>Elite Plan - $5,000</h3>
-          <p>Exclusive access to private opportunities, VIP support, and compound interest.</p>
-          <button class="invest-btn" onclick="handleInvest('Starter Plan - $5,000')">Invest Now</button>
-        </div>
-        <div class="plan">
-          <h3>Ultra Plan - $10,000</h3>
-          <p>Top-tier investing. Sky-high returns, white-glove support, and direct fund access.</p>
-          <button class="invest-btn" onclick="handleInvest('Starter Plan - $10,000')">Invest Now</button>
-        </div>
-      </section>
-  </section>
-
-  <section class="why-section" id="why">
-    <h2>Why Choose Global Invest Ltd?</h2>
-    <div class="why-grid">
-      <div class="why-box">
-        <h3>Trusted & Secure</h3>
-        <p>We use top-level encryption and verified payment channels.</p>
+  <section class="section" id="plans">
+    <h2>Investment Plans</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter</h3>
+        <p>₦10,000 — Earn ₦1,000/day</p>
       </div>
-      <div class="why-box">
-        <h3>Consistent Returns</h3>
-        <p>Earn daily, weekly, or monthly profits based on your plan.</p>
+      <div class="plan">
+        <h3>Silver</h3>
+        <p>₦25,000 — Earn ₦2,500/day</p>
       </div>
-      <div class="why-box">
-        <h3>24/7 Support</h3>
-        <p>Our support team is always here for your questions.</p>
+      <div class="plan">
+        <h3>Gold</h3>
+        <p>₦50,000 — Earn ₦5,000/day</p>
       </div>
-      <div class="why-box">
-        <h3>Easy Withdrawals</h3>
-        <p>Withdraw profits anytime after reaching your threshold.</p>
+      <div class="plan">
+        <h3>Pro</h3>
+        <p>₦100,000 — Earn ₦10,000/day</p>
       </div>
-    </div>
-    <div class="cta-buttons">
-      <a href="register.html">Register Now</a>
-      <a href="#contact">Contact Us</a>
-    </div>
-  </section>
-
-  <div class="slideshow-container">
-    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="active-slide" />
-    <img src="https://randomuser.me/api/portraits/women/45.jpg" />
-    <img src="https://randomuser.me/api/portraits/men/65.jpg" />
-    <img src="https://randomuser.me/api/portraits/women/22.jpg" />
-  </div>
-
-  <section class="investors-section">
-    <h2>Live Investor Activity</h2>
-    <div class="investor-list" id="investorList"></div>
-  </section>
-
-  <section style="padding: 60px 40px; background-color: #21262d; text-align: center; border-top: 1px solid #30363d;">
-    <h2 style="font-size: 30px; color: #58a6ff; margin-bottom: 20px;">Don't Miss Out on Daily Profits</h2>
-    <p style="font-size: 18px; color: #c9d1d9; max-width: 800px; margin: 0 auto 30px;">
-      Every minute you wait is a missed opportunity to grow your wealth. At <strong style="color: #3fb950;">Global Invest Ltd</strong>, we offer secure, high-yield investment plans with <strong>daily returns</strong> that compound over time. Whether you're new to investing or looking to diversify your income, our platform is designed to deliver <span style="color: #f0b400; font-weight: bold;">consistent earnings</span> with ease. Registration takes less than 2 minutes, and your journey to financial freedom can start <u>today</u>.
-    </p>
-    <a href="register.html" style="display: inline-block; margin-top: 25px; padding: 16px 28px; background-color: #238636; color: white; font-size: 16px; font-weight: 600; border-radius: 8px; text-decoration: none;">
-      Register Now & Start Earning 💰
-    </a>
-  </section>
-
- <!-- Why Register Now Section -->
-<section style="padding: 80px 40px; background: linear-gradient(135deg, #0d1117, #161b22); color: #c9d1d9; text-align: center; animation: fadeInUp 1s ease-in-out;">
-    <h2 style="font-size: 36px; color: #3fb950; margin-bottom: 20px; animation: pulse 2s infinite;">Why You Should Register Now</h2>
-    <p style="font-size: 18px; max-width: 900px; margin: 0 auto; line-height: 1.7;">
-      Join thousands of smart investors already earning passively every single day. At <strong>Global Invest Ltd</strong>, your money works for you 24/7 while you sleep. With fast payouts, secure investment plans, and dedicated support, there's no reason to wait.
-      <br/><br/>
-      Whether you're starting with $50 or scaling big with $5,000, our platform adapts to your goals and helps you grow consistently. Don't miss another day of potential earnings. <strong>Register now</strong> and be on your way to financial freedom!
-    </p>
-    <a href="register.html" style="display: inline-block; margin-top: 30px; padding: 16px 32px; background-color: #238636; color: white; border-radius: 10px; font-size: 18px; font-weight: 600; text-decoration: none; transition: transform 0.3s ease;">
-      Start Earning Now
-    </a>
-  </section>
-  
-  <!-- Animations -->
-  <style>
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-  
-  section a:hover {
-    transform: scale(1.05);
-  }
-  </style>
-  
-    
-    <h1 style="text-align: center;color: white;">The Steps describe how the platform works and whats inside</h1>
-
-  <section>
-    <div style="text-align: center;">
-        <img src="./register.jpg">
-        <h3 style="color: #ff3e6c;">Register Account</h3>
-        <h4>By Registering the website you will be able to start your operation</h4>
-    </div>
-
-    <div style="text-align: center;">
-        <img src="./email.jpg">
-        <h3 style="color: #ff3e6c;">Verify Email</h3>
-        <h4>After creating the account user need to verify the email for account purpose</h4>
-    </div>
-
-    <div style="text-align: center;">
-        <img src="./kyc.jpg">
-        <h3 style="color: #ff3e6c;">Verify KYC</h3>
-        <h4>Users' KYC needs to be verified before making any withdrawals</h4>
-    </div>
-
-    <div style="text-align: center;">
-        <img src="./bank.jpg">
-        <h3 style="color: #ff3e6c;">Deposit Money</h3>
-        <h4>Users can deposit using ny auomatic or manual gatewats</h4>
-    </div>
-
-    <div style="text-align: center;">
-        <img src="./plan.png">
-        <h3 style="color: #ff3e6c;">Investment Plan</h3>
-        <h4>Users Can invest to any plan or schema to enjoy the profit which will add on profit wallet</h4>
-    </div>
-
-    <div style="text-align: center;">
-        <img src="./transfer.png">
-        <h3 style="color: #ff3e6c;">Transfer Money</h3>
-        <h4>Users can transfer the fund to another user instantly</h4>
-    </div>
-
-    <div style="text-align: center;">
-        <img src="./refer.jpg">
-        <h3 style="color: #ff3e6c;">Refer to Friends</h3>
-        <h4>Claim extra bonuses by just referring your friends. Isnt that amazing? </h4>
-    </div>
-
-    <div style="text-align: center;">
-        <img src="./enjoy.png">
-        <h3 style="color: #ff3e6c;">Withdraw and Enjoy</h3>
-        <h4>Withdraw can be performed in the main wallet and it will take a few time to complete</h4>
-    </div>
-  </section ><br><br><br>
-  <!-- About Us Section -->
-  <section style="padding: 60px 40px; background-color: #161b22; border-top: 1px solid #30363d;">
-    <h2 style="font-size: 28px; color: #58a6ff; margin-bottom: 20px;text-align: center;">About Global Invest Ltd</h2>
-    <p style="font-size: 16px; color: #adbac7; max-width: 900px; margin: 0 auto;">
-      At <strong>Global Invest Ltd</strong>, we are a team of seasoned financial experts dedicated to making investment accessible to everyone. Our platform is built with transparency, simplicity, and high performance in mind. Whether you're a beginner or a seasoned investor, we provide tools, guidance, and plans to help you grow your capital with minimal effort.
-      <br/><br/>
-      Our mission is to democratize investing for all by offering low-barrier entry plans, lightning-fast payouts, and 24/7 support. We are trusted by over <span style="color: #3fb950;">10,000+ investors</span> across the globe and continue to grow daily. With us, your money is not just safe—it's working for you.
-    </p>
-  </section>
-  
-  <!-- Contact Us Section -->
-  <section style="padding: 60px 40px; background-color: #0d1117; border-top: 1px solid #30363d;">
-    <h2 style="font-size: 28px; color: #58a6ff; margin-bottom: 20px;text-align: center 
-    ;">Contact Us</h2>
-    <p style="font-size: 16px; color: #c9d1d9; max-width: 800px; margin: 0 auto 30px;">
-      Have a question, concern, or need support? Our dedicated team is here to help you.
-      Reach out to us anytime through the options below:
-    </p>
-    <ul style="list-style: none; padding: 0; font-size: 15px; color: #adbac7;text-align: center;">
-      <li><strong>Email:</strong> <a href="mailto:support@globalinvest.com" style="color: #3fb950;">support@globalinvest.com</a></li>
-      <li><strong>WhatsApp:</strong> <a href="https://wa.me/234XXXXXXXXXX" target="_blank" style="color: #3fb950;">+1 XXXXXXXXXX</a></li>
-      <li><strong>Location:</strong> United States (Remote global support)</li>
-    </ul>
-  </section>
-  
-  <!-- FAQ Section -->
-<section style="padding: 60px 40px; background-color: #161b22; border-top: 1px solid #30363d; animation: fadeIn 1s ease-in;">
-    <h2 style="font-size: 28px; color: #58a6ff; margin-bottom: 20px;text-align: center;">Frequently Asked Questions</h2>
-    <div style="max-width: 900px; margin: 0 auto; color: #c9d1d9;">
-      <p><strong>Q: How do I start investing?</strong><br/>A: Simply register an account, choose a plan, and fund your wallet. Our system will begin growing your investment immediately.</p>
-      <p><strong>Q: Is my money safe?</strong><br/>A: Yes, we use secure payment channels and partner with reputable financial institutions to ensure your funds are protected.</p>
-      <p><strong>Q: When can I withdraw my profits?</strong><br/>A: You can withdraw once your investment cycle completes, or daily depending on your plan.</p>
-      <p><strong>Q: How can I contact support?</strong><br/>A: Through our email or WhatsApp number provided in the contact section.</p>
-    </div>
-  </section>
-  
-  <!-- Testimonials Section -->
-  <section style="padding: 60px 40px; background-color: #0d1117; border-top: 1px solid #30363d; animation: fadeIn 1s ease-in;">
-    <h2 style="font-size: 28px; color: #58a6ff; margin-bottom: 20px;text-align: center;">What Our Investors Say</h2>
-    <div style="display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 1000px; margin: 0 auto;">
-      <div style="background-color: #21262d; padding: 20px; border-radius: 10px; color: #c9d1d9;">
-        <p>"Global Invest Ltd has changed my life! I started with the Starter Plan and now earn passively every week."</p>
-        <strong>- Mercy O., Mumbai</strong>
+      <div class="plan">
+        <h3>Premium</h3>
+        <p>₦250,000 — Earn ₦25,000/day</p>
       </div>
-      <div style="background-color: #21262d; padding: 20px; border-radius: 10px; color: #c9d1d9;">
-        <p>"I was skeptical at first, but the transparency and support are unmatched. Highly recommend!"</p>
-        <strong>- Nataliya Kormacova , <br> United States</strong>
+      <div class="plan">
+        <h3>Business</h3>
+        <p>₦500,000 — Earn ₦50,000/day</p>
       </div>
-      <div style="background-color: #21262d; padding: 20px; border-radius: 10px; color: #c9d1d9;">
-        <p>"I’ve earned more here than from my local savings plan. The payout is fast and reliable."</p>
-        <strong>- Anita G., California</strong>
+      <div class="plan">
+        <h3>VIP</h3>
+        <p>₦1,000,000 — Earn ₦100,000/day</p>
       </div>
     </div>
   </section>
-  
-  <!-- Animations -->
-  <style>
-  @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  </style>
-  <!-- Include Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
 
-<script>
-  // Firebase configuration
-  const firebaseConfig = {
-    apiKey: "your-api-key",
-    authDomain: "your-auth-domain",
-    projectId: "your-project-id",
-    storageBucket: "your-storage-bucket",
-    messagingSenderId: "your-sender-id",
-    appId: "your-app-id"
-  };
+  <section class="section" id="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h4>1. Register & Activate</h4>
+        <p>Sign up and choose your preferred investment plan.</p>
+      </div>
+      <div class="step">
+        <h4>2. Earn Daily</h4>
+        <p>Watch your daily earnings grow based on your plan.</p>
+      </div>
+      <div class="step">
+        <h4>3. Withdraw Anytime</h4>
+        <p>Withdraw your profits once your balance reaches the threshold.</p>
+      </div>
+    </div>
+  </section>
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore(app);
-  const auth = firebase.auth(app);
-</script>
+  <section class="section" id="why">
+    <h2>Why Choose Us</h2>
+    <div class="reasons">
+      <div class="reason">
+        <h4>✔️ Multiple Plans</h4>
+        <p>From ₦10,000 to ₦1,000,000 — options for every investor.</p>
+      </div>
+      <div class="reason">
+        <h4>📈 Daily Profits</h4>
+        <p>Instant daily earnings you can track and withdraw.</p>
+      </div>
+      <div class="reason">
+        <h4>🔒 Secure System</h4>
+        <p>Safe and protected investment platform built on modern tech.</p>
+      </div>
+      <div class="reason">
+        <h4>📞 Support Access</h4>
+        <p>Fast customer care through WhatsApp and email.</p>
+      </div>
+    </div>
+  </section>
 
-  
+  <div class="ticker">💰 Total Invested: $48,920 and rising...</div>
 
-  <footer id="contact">
+  <section class="section" id="investors">
+    <h2>Live Investors</h2>
+    <div class="investors" id="investor-list">
+      <!-- Investor cards will be auto-injected here -->
+    </div>
+  </section>
+
+  <section class="section slideshow">
+    <h2>Meet Some of Our Happy Investors</h2>
+    <div class="slide">
+      <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Investor" class="investor-img">
+      <p>John from Lagos</p>
+    </div>
+    <div class="slide">
+      <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Investor" class="investor-img">
+      <p>Grace from Abuja</p>
+    </div>
+    <div class="slide">
+      <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Investor" class="investor-img">
+      <p>Michael from Port Harcourt</p>
+    </div>
+  </section>
+
+  <footer>
     <p>&copy; 2025 Global Invest Ltd. All rights reserved.</p>
-    <p>Email: support@globalinvest.com | Phone: +234 801 234 5678</p>
-    <p>Office: 12 Marina Rd, Victoria Island, Lagos, Nigeria</p>
   </footer>
 
-  <audio id="tickerSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
-
   <script>
-    const investorNames = ["John D.", "Maria G.", "Ahmed Y.", "Lucy T.", "Brian Z.", "Chinwe K.", "Daniel O.", "Fatima A.", "James E.", "Tosin M."];
-    const locations = ["USA", "UK", "Canada", "Nigeria", "Germany", "UAE", "South Africa", "India", "Ghana", "Kenya"];
-    const investorList = document.getElementById("investorList");
-    const ticker = document.getElementById("tickerSound");
-    const totalInvested = document.getElementById("totalInvested");
-    let total = 0;
+    const investorList = document.getElementById("investor-list");
+    const names = ["Ada", "John", "Blessing", "Musa", "Chioma", "David", "Femi", "Grace"];
 
-    const isLoggedIn = false;
-
-    function handleInvest(planName) {
-      if (isLoggedIn) {
-        window.location.href = `payment.html?plan=${encodeURIComponent(planName)}`;
-      } else {
-        window.location.href = "register.html";
-      }
+    function createInvestorCard(name) {
+      const div = document.createElement("div");
+      div.className = "investor-card";
+      div.innerHTML = `<h4>${name}</h4><p>Just invested ₦${Math.floor(Math.random() * 90000 + 10000)}</p>`;
+      return div;
     }
 
-    function formatMoney(amount) {
-      return "$" + amount.toLocaleString();
-    }
-
-    function addInvestor() {
-      const name = investorNames[Math.floor(Math.random() * investorNames.length)];
-      const location = locations[Math.floor(Math.random() * locations.length)];
-      const amount = Math.floor(Math.random() * 10000 + 100);
-      total += amount;
-
-      const card = document.createElement("div");
-      card.className = "investor-card";
-      card.innerHTML = `<span><strong>${name}</strong> from ${location}</span><span>Invested ${formatMoney(amount)}</span>`;
+    setInterval(() => {
+      const name = names[Math.floor(Math.random() * names.length)];
+      const card = createInvestorCard(name);
       investorList.prepend(card);
-
       if (investorList.children.length > 10) {
         investorList.removeChild(investorList.lastChild);
       }
-
-      ticker.play();
-      animateCounter(total);
-    }
-
-    let displayAmount = 0;
-    function animateCounter(target) {
-      const increment = Math.ceil((target - displayAmount) / 20);
-      const update = () => {
-        if (displayAmount < target) {
-          displayAmount += increment;
-          totalInvested.textContent = formatMoney(displayAmount);
-          requestAnimationFrame(update);
-        } else {
-          displayAmount = target;
-          totalInvested.textContent = formatMoney(displayAmount);
-        }
-      };
-      update();
-    }
-
-    // Slideshow logic
-    const slides = document.querySelectorAll(".slideshow-container img");
-    let currentSlide = 0;
-    setInterval(() => {
-      slides[currentSlide].classList.remove("active-slide");
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active-slide");
     }, 3000);
-
-    setInterval(addInvestor, 3000);
-    window.onload = () => {
-      for (let i = 0; i < 5; i++) addInvestor();
-    };
   </script>
 </body>
+
 </html>
