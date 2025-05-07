@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration - Global Invest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: #0f172a;
+      padding: 30px;
+    }
+    header {
+      padding: 20px 40px;
+      background-color: #161b22;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #30363d;
+    }
+    header h1 {
+      font-size: 24px;
+      color: #58a6ff;
+    }
+    nav a {
+      color: #c9d1d9;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      background: #334155;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #0ef;
+      color: #000;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0cd;
+    }
+    .back {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back a {
+      color: #0ef;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Global Invest Ltd</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Register to Start Investing</h2>
+
+    <label for="plan">Choose Investment Plan</label>
+    <select id="plan" required>
+      <option value="" disabled selected>Select a plan</option>
+      <option value="Starter - $100">Starter - $100</option>
+      <option value="Silver - $500">Silver - $500</option>
+      <option value="Gold - $1000">Gold - $1000</option>
+      <option value="Pro - $2500">Pro - $2500</option>
+      <option value="Elite - $5000">Elite - $5000</option>
+      <option value="Ultra - $10000">Ultra - $10000</option>
+    </select>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" required placeholder="Enter your email">
+
+    <label for="password">Create Password</label>
+    <input type="password" id="password" required placeholder="Enter a password">
+
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" id="confirm-password" required placeholder="Confirm your password">
+
+    <button type="button" onclick="registerUser()">Register</button>
+
+    <div class="back">
+      <p><a href="index.html">← Back to Homepage</a></p>
+    </div>
+  </div>
+
+  <script>
+    function generateUniqueId() {
+      // Generate a simple unique ID (could be a UUID for more uniqueness)
+      return 'user_' + Math.random().toString(36).substr(2, 9);
+    }
+
+    function registerUser() {
+      const plan = document.getElementById("plan").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+
+      // Validate form fields
+      if (!plan || !email || !password || !confirmPassword) {
+        alert("Please fill all fields before proceeding.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      // Generate a unique ID for the user
+      const uniqueId = generateUniqueId();
+
+      // Save user info and unique ID in localStorage
+      localStorage.setItem("userUniqueId", uniqueId);
+      localStorage.setItem("selectedPlan", plan);
+      localStorage.setItem("userEmail", email);
+
+      // Redirect to dashboard after successful registration
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>

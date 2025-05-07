@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <header>
+        <h1>Global Invest Ltd</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </header>
+  <title>Login - Global Invest</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 100px;
+    }
+    header {
+      padding: 20px 40px;
+      background-color: #161b22;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #30363d;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #58a6ff;
+    }
+
+    nav a {
+      color: #c9d1d9;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      text-align: center;
+      background: linear-gradient(145deg, #161b22, #0d1117);
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #8b949e;
+    }
+
+    .counter {
+      font-size: 32px;
+      color: #3fb950;
+      margin-top: 30px;
+    }
+
+    .login-box {
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 250px;
+    }
+    button {
+      background-color: #0ef;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email" id="email">
+    <input type="password" placeholder="Password" id="password">
+    <button onclick="login()">Login</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <script>
+    function login() {
+      // Replace with Firebase Auth or your backend
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>

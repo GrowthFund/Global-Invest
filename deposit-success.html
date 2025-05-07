@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deposit Pending - Global Invest</title>
+  <header>
+    <h1>Global Invest Ltd</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+  
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    header {
+      padding: 20px 40px;
+      background-color: #161b22;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #30363d;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #58a6ff;
+    }
+
+    nav a {
+      color: #c9d1d9;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      text-align: center;
+      background: linear-gradient(145deg, #161b22, #0d1117);
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #8b949e;
+    }
+
+    .counter {
+      font-size: 32px;
+      color: #3fb950;
+      margin-top: 30px;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #0ef;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+      margin: 30px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    h2 {
+      margin-top: 20px;
+    }
+    .status-message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    .whatsapp-btn {
+      background-color: #25d366;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Payment Pending Confirmation</h2>
+
+  <!-- Show pending status spinner -->
+  <div class="spinner"></div>
+
+  <div class="status-message">
+    <p>Your deposit is currently being verified. Please be patient.</p>
+    <p>If you need assistance or wish to confirm your payment, please contact admin directly via WhatsApp.</p>
+  </div>
+
+  <!-- WhatsApp Contact Button -->
+  <a class="whatsapp-btn" href="https://wa.me/234XXXXXXXXXX?text=I%20need%20help%20with%20my%20deposit" target="_blank">
+    Contact Admin via WhatsApp
+  </a>
+
+</body>
+</html>

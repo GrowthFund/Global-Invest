@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Global Invest</title>
+  <style>
+    /* Your page styles here */
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: #0f172a;
+      padding: 30px;
+    }
+    header {
+      padding: 20px 40px;
+      background-color: #161b22;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #30363d;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #58a6ff;
+    }
+
+    nav a {
+      color: #c9d1d9;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .container {
+      background-color: #1e293b;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .dashboard-content {
+      color: #0ef;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #0ef;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    // Check if user is registered
+    window.onload = function() {
+      const userId = localStorage.getItem("userUniqueId");
+
+      if (!userId) {
+        // If no user is registered, redirect to the registration page
+        window.location.href = "register.html";  // Change to your registration page
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Global Invest Ltd</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Welcome to Your Dashboard</h2>
+    <div class="dashboard-content">
+      <p>Here you can see your investment status, earnings, and other details.</p>
+    </div>
+  </div>
+
+  <h2>Available Investment Plans</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>💰 Current Balance</h3>
+      <p>$0.00</p>
+    </div>
+    <div class="card">
+      <h3>📤 Total Withdrawals</h3>
+      <p>$0.00</p>
+    </div>
+    <div class="card">
+      <h3>⏳ Pending Withdrawals</h3>
+      <p>$0.00</p>
+    </div>
+    <div class="card">
+      <h3>👤 Profile</h3>
+      <p>Email: user@example.com<br>ID: #001234</p>
+    </div>
+    <div class="card">
+      <h3>📥 Deposit</h3>
+      <button onclick="location.href='deposit.html'">Deposit Funds</button>
+    </div>
+  </div>
+
+  <h2>Investment Plans</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Starter Plan - $100</h3>
+      <p>Perfect for new investors. Earn steady returns daily. Minimum risk. No lock-up period.</p>
+      <button onclick="location.href='deposit.html?plan=starter'">Invest</button>
+    </div>
+    <div class="card">
+      <h3>Silver Plan - $500</h3>
+      <p>Boost your profits with increased interest rate and monthly compounding returns.</p>
+      <button onclick="location.href='deposit.html?plan=silver'">Invest</button>
+    </div>
+    <div class="card">
+      <h3>Gold Plan - $1,000</h3>
+      <p>Enjoy premium returns, personal advisor, and weekly bonuses. High-growth potential.</p>
+      <button onclick="location.href='deposit.html?plan=gold'">Invest</button>
+    </div>
+    <div class="card">
+      <h3>Pro Plan - $2,500</h3>
+      <p>Advanced plan for serious investors. Maximize ROI with smart reinvestment strategies.</p>
+      <button onclick="location.href='deposit.html?plan=pro'">Invest</button>
+    </div>
+    <div class="card">
+      <h3>Elite Plan - $5,000</h3>
+      <p>Exclusive access to private opportunities, VIP support, and compound interest.</p>
+      <button onclick="location.href='deposit.html?plan=elite'">Invest</button>
+    </div>
+    <div class="card">
+      <h3>Ultra Plan - $10,000</h3>
+      <p>Top-tier investing. Sky-high returns, white-glove support, and direct fund access.</p>
+      <button onclick="location.href='deposit.html?plan=ultra'">Invest</button>
+    </div>
+  </div>
+
+</body>
+</html>

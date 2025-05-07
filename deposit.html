@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <header>
+        <h1>Global Invest Ltd</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deposit - Global Invest</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    header {
+      padding: 20px 40px;
+      background-color: #161b22;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #30363d;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #58a6ff;
+    }
+
+    nav a {
+      color: #c9d1d9;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      text-align: center;
+      background: linear-gradient(145deg, #161b22, #0d1117);
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #8b949e;
+    }
+
+    .counter {
+      font-size: 32px;
+      color: #3fb950;
+      margin-top: 30px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .unique-id {
+      background: #0c4a6e;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      font-family: monospace;
+      text-align: center;
+    }
+    .btc-info {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #f56;
+    }
+    .btc-address-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .btc-address {
+      background: #333;
+      padding: 10px;
+      border-radius: 6px;
+      font-family: monospace;
+      width: 70%;
+      text-align: center;
+    }
+    .copy-btn {
+      background: #0ef;
+      color: #000;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .copy-btn:hover {
+      background: #0cd;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #0ef;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+      margin: 30px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    button {
+      background-color: #0ef;
+      color: #000;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0cd;
+    }
+    .back {
+      margin-top: 20px;
+    }
+    .back a {
+      color: #0ef;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Deposit Your Funds</h2>
+
+    <!-- Display Unique ID from localStorage -->
+    <div class="unique-id">
+      <p>Your Unique ID: <span id="display-id"></span></p>
+    </div>
+
+    <label for="plan">Investment Plan</label>
+    <input type="text" id="plan" readonly><br><br>
+
+    <!-- Display BTC Address with Copy Button -->
+    <div class="btc-address-container">
+      <input type="text" id="btc-address" value="bc1qp9juaut6kgqhp00e2m64kmf76lrv54jn9vdzsf" readonly class="btc-address">
+      <button class="copy-btn" onclick="copyBTCAddress()">Copy Address</button>
+    </div>
+
+    <div class="btc-info">
+      <p><strong>Note:</strong> The BTC address is <span style="color: #f56;">case-sensitive</span>. Please copy it carefully, or you may lose your funds.</p>
+    </div>
+
+    <button type="button" onclick="submitDeposit()">I Have Made the Payment</button>
+
+    <div class="back">
+      <p><a href="dashboard.html">← Back to Dashboard</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve user info from localStorage
+    const userId = localStorage.getItem("userUniqueId");
+    const selectedPlan = localStorage.getItem("selectedPlan");
+
+    // Display the unique ID and plan on the page
+    document.getElementById("display-id").textContent = userId;
+    document.getElementById("plan").value = selectedPlan;
+
+    // Function to copy the BTC address to clipboard
+    function copyBTCAddress() {
+      const btcAddress = document.getElementById("btc-address");
+      btcAddress.select();
+      document.execCommand("copy");
+      alert("BTC address copied to clipboard!");
+    }
+
+    function submitDeposit() {
+      // Simply redirect the user to the success page
+      window.location.href = "deposit-success.html";
+    }
+  </script>
+
+</body>
+</html>
